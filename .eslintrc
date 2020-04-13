@@ -1,0 +1,7 @@
+{
+  "extends": "preact",
+  "ignorePatterns": ["build/"],
+  "rules": {
+
+  }
+}
