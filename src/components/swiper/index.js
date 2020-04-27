@@ -62,12 +62,13 @@ function Swiper({
           ({ startDir }) =>
             !!(startDir & direction) &&
             !this.disable &&
-            edgeCheck(
-              startDir,
-              this.horizontal ? ['right', 'left'] : ['down', 'up'],
-              this.tab,
-              children.length - 1,
-            ),
+            (overflow ||
+              edgeCheck(
+                startDir,
+                this.horizontal ? ['right', 'left'] : ['down', 'up'],
+                this.tab,
+                children.length - 1,
+              )),
         ),
         merge(fling$),
         merge(custom$.pipe(map(i => ({ type: 'custom', nextTab: i })))),
