@@ -18,3 +18,12 @@
   width: 100%;
   flex: none;
 }
+
+.vertical {
+  flex-direction: column;
+  height: 100%;
+}
+
+.vertical .itemCan {
+  height: 100%;
+}

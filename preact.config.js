@@ -14,5 +14,8 @@ export default config => {
     com: p('./src/components/'),
   }
 
+  config.node.process = 'mock'
+  config.node.Buffer = true
+
   config.plugins.push(new WebpackAliasSyncPlugin())
 }

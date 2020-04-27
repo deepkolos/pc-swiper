@@ -8,9 +8,9 @@
     "start:production": "npm run -s serve",
     "start:development": "npm run -s dev",
     "module": "",
-    "build": "preact build --sw true",
-    "serve": "preact build --sw true && sirv build --cors --single",
-    "dev": "preact watch --sw",
+    "build": "preact build --sw false",
+    "serve": "preact build --sw false && sirv build --cors --single",
+    "dev": "preact watch --sw false",
     "lint": "eslint src",
     "test": "jest"
   },
@@ -23,7 +23,7 @@
     "eslint": "^6.8.0",
     "eslint-config-preact": "^1.1.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^25.2.7",
+    "jest": "^25.4.0",
     "jest-preset-preact": "^1.0.0",
     "per-env": "^1.0.2",
     "preact-cli": "^3.0.0-rc.10",
@@ -32,7 +32,7 @@
     "webpack-alias-sync-plugin": "0.0.1"
   },
   "dependencies": {
-    "preact": "^10.3.4",
+    "preact": "^10.4.1",
     "preact-render-to-string": "^5.1.4",
     "preact-router": "^3.2.1",
     "rxjs": "^6.5.5"
