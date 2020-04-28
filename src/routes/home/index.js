@@ -1,9 +1,11 @@
 import { h } from 'preact'
 import style from './style'
-import Swiper, { Direction } from 'com/swiper'
-import SwiperItem from 'com/swiper/item'
-import { useRef, useState } from 'preact/hooks'
 import { restrictRange } from 'util/num'
+import { useRef, useState } from 'preact/hooks'
+import Swiper, { SwiperItem, Direction } from 'com/swiper'
+
+// import Swiper, { SwiperItem, Direction } from '../../../lib/pc-swiper.js' // 'com/swiper'
+// import '../../../lib/pc-swiper.css'
 
 function random(min, max) {
   return Math.round(Math.random() * (max - min)) + min

@@ -6,3 +6,4 @@ build
 .DS_Store
 package-lock.json
 release
+lib/

@@ -1,9 +1,44 @@
 import path from 'path'
+import pkg from './package.json'
+import { DefinePlugin, ProvidePlugin } from 'webpack'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import WebpackAliasSyncPlugin from 'webpack-alias-sync-plugin'
 
 const p = str => path.resolve(__dirname, str)
 
-export default config => {
+const module = cfg => {
+  cfg.entry = './components/swiper/index.js'
+
+  cfg.devtool = 'source-map'
+  cfg.mode = 'development'
+  // cfg.mode = 'production'
+
+  cfg.output = {
+    path: p('./lib'),
+    filename: 'pc-swiper.js',
+    libraryTarget: 'umd',
+  }
+  cfg.externals = ['preact/hooks', 'preact']
+
+  cfg.plugins = [
+    ...cfg.plugins.filter(i => i.constructor.name === 'ProgressPlugin'),
+    new MiniCssExtractPlugin({
+      filename: 'pc-swiper.css',
+      chunkFilename: 'pc-swiper.css',
+    }),
+    new ProvidePlugin({
+      h: ['preact', 'h'],
+      Fragment: ['preact', 'Fragment'],
+    }),
+    new DefinePlugin({
+      'process.env.VERSION': JSON.stringify(pkg.version),
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+  ]
+  // console.log('TCL: cfg', cfg.plugins)
+}
+
+export default (config, env) => {
   config.resolve.alias = {
     ...config.resolve.alias,
     mock: p('./mocks/'),
@@ -18,4 +53,6 @@ export default config => {
   config.node.Buffer = true
 
   config.plugins.push(new WebpackAliasSyncPlugin())
+
+  if (env.module) module(config)
 }

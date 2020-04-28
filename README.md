@@ -1,11 +1,12 @@
 # pc-swiper
 
-一个使用`rxjs`做交互流程管理的swiper, 适用于`preact`项目, `hooks`编写,主要尝试`rxjs`做交互流程流转, 有如下特性
+一个使用`rxjs`做交互流程管理的swiper, 适用于`preact`项目, `hooks`编写, 有如下特性
 
 1. 横向/纵向滚动
 2. tab页面懒初始化
 3. 溢出动画
 4. 支持嵌套([横|纵]嵌[横|纵])+
+5. 体积相对较小(压缩后26.6k, swiper.min.js则有124.9k)
 
 # Live Demo
 

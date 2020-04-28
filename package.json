@@ -7,7 +7,7 @@
     "start": "per-env",
     "start:production": "npm run -s serve",
     "start:development": "npm run -s dev",
-    "module": "",
+    "module": "preact build --sw false --module",
     "build": "preact build --sw false",
     "serve": "preact build --sw false && sirv build --cors --single",
     "dev": "preact watch --sw false",

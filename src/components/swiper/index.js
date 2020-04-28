@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-case-declarations */
 /* eslint-disable no-fallthrough */
+/* eslint-disable no-case-declarations */
 import { h } from 'preact'
 import style from './style'
 import { Subject } from 'rxjs'
@@ -278,5 +278,8 @@ function Swiper({
   )
 }
 
+Swiper.version = process.env.VERSION
+
 export default Swiper
-export { Direction }
+export { Direction, RxSwipe }
+export { default as SwiperItem } from './item.js'
