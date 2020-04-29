@@ -14,6 +14,8 @@
 
 # Live Demo
 
+[Link](https://deepkolos.github.io/pc-swiper/)
+
 # Props
 
 | 参数           | 类型      | 默认值                   | 描述                     |

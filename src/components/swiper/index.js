@@ -281,5 +281,5 @@ function Swiper({
 Swiper.version = process.env.VERSION
 
 export default Swiper
-export { Direction, RxSwipe }
+export { Direction, RxSwipe, Swiper }
 export { default as SwiperItem } from './item.js'
