@@ -1,5 +1,9 @@
 # pc-swiper
 
+![https://travis-ci.com/deepkolos/pc-swiper](https://travis-ci.com/deepkolos/pc-swiper.svg?branch=master)
+![](https://img.shields.io/npm/dt/pc-swiper.svg)
+![](https://img.shields.io/npm/v/pc-swiper.svg)
+
 一个使用`rxjs`做交互流程管理的swiper, 适用于`preact`项目, `hooks`编写, 有如下特性
 
 1. 横向/纵向滚动
