@@ -19,7 +19,7 @@ const module = cfg => {
     libraryTarget: 'umd',
   }
   cfg.externals = ['preact/hooks', 'preact']
-
+  cfg.optimization.usedExports = true
   cfg.plugins = [
     ...cfg.plugins.filter(i => i.constructor.name === 'ProgressPlugin'),
     new MiniCssExtractPlugin({
