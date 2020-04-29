@@ -8,8 +8,8 @@
     "start:production": "npm run -s serve",
     "start:development": "npm run -s dev",
     "module": "preact build --sw false --module",
-    "build": "preact build --sw false --no-prerender",
-    "serve": "preact build --sw false --no-prerender && sirv build --cors --single",
+    "build": "preact build --sw false --no-prerender --esm false",
+    "serve": "preact build --sw false --no-prerender --esm false && sirv build --cors --single",
     "dev": "preact watch --sw false --no-prerender",
     "lint": "eslint src",
     "test": "jest"
