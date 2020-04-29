@@ -16,6 +16,8 @@
 
 [Link](https://deepkolos.github.io/pc-swiper/)
 
+![demo](https://raw.githubusercontent.com/deepkolos/pc-swiper/master/demo.webp)
+
 # Props
 
 | 参数           | 类型      | 默认值                   | 描述                     |
