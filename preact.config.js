@@ -51,6 +51,7 @@ export default (config, env) => {
 
   config.node.process = 'mock'
   config.node.Buffer = true
+  env.isProd && (config.output.publicPath = '/pc-swiper')
 
   config.plugins.push(new WebpackAliasSyncPlugin())
 
