@@ -4,9 +4,9 @@ import SwiperContext from './context'
 import { useContext, useState, useEffect } from 'preact/hooks'
 
 function SwiperItem({ children, index, className }) {
-  const { tabOnFingEnd$, pool } = useContext(SwiperContext)
+  const { tabOnFlingEnd$, pool } = useContext(SwiperContext)
   const [show, setShow] = useState(false)
-  const subscription = tabOnFingEnd$.subscribe(currIndex => {
+  const subscription = tabOnFlingEnd$.subscribe(currIndex => {
     Math.abs(index - currIndex) < pool !== show &&
       setShow(Math.abs(index - currIndex) < pool)
   })

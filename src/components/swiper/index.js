@@ -61,10 +61,10 @@ function Swiper({
 
   children.forEach((node, i) => (node.props.index = i))
 
-  const { endT$, moveT$, custom$, startT$, tabOnFingEnd$ } = useMemo(() => {
+  const { endT$, moveT$, custom$, startT$, tabOnFlingEnd$ } = useMemo(() => {
     const fling$ = new Subject()
     const custom$ = new Subject()
-    const tabOnFingEnd$ = new Subject()
+    const tabOnFlingEnd$ = new Subject()
     const { startT$, moveT$, endT$, $$ } = RxSwipe()
 
     const initialState = {
@@ -207,7 +207,7 @@ function Swiper({
               return { ...state, tabX: nextTabX, tab: nextTab }
             case 'flingend':
               onFlingEnd && onFlingEnd(tab)
-              tabOnFingEnd$.next(tab)
+              tabOnFlingEnd$.next(tab)
             default:
               return state
           }
@@ -229,11 +229,11 @@ function Swiper({
     // prettier-ignore
     return {
         endT$, moveT$, custom$,
-        startT$, tabOnFingEnd$,
+        startT$, tabOnFlingEnd$,
       }
   }, [])
 
-  const ctx = useMemo(() => ({ pool, tabOnFingEnd$ }), [pool, tabOnFingEnd$])
+  const ctx = useMemo(() => ({ pool, tabOnFlingEnd$ }), [pool, tabOnFlingEnd$])
 
   this.goto = i => {
     custom$.next(
@@ -246,7 +246,7 @@ function Swiper({
   }
 
   useEffect(() => {
-    tabOnFingEnd$.next(index)
+    tabOnFlingEnd$.next(index)
     requestAnimationFrame(() => {
       if (!contentCanRef.current) return
       const { width, height } = contentCanRef.current.getBoundingClientRect()
