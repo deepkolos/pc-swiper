@@ -92,7 +92,7 @@ function Swiper({
     )
       .pipe(
         scan((state, { e, type, deltaX, deltaY, nextTabX, nextTab }) => {
-          let { tab, tabX, tabSX, overflowed } = state
+          let { tab, tabX, overflowed } = state
           const [rangeStartTab, rangeEndTab] = this.swipeableRange
           // prettier-ignore
           const { maxTab, overflow, threshold, onSwipeEnd, onOverflow, flingDuration,
@@ -109,10 +109,10 @@ function Swiper({
             case 'swipestart':
               if (state.fling) state.fling.cancel()
               nextTabX = deltaX + tabX
-              tabSX = tabX
-              overflowed = ''
+              state.tabSX = tabX
+              state.overflowed = ''
             case 'swipemove': {
-              nextTabX = deltaX + tabSX
+              nextTabX = deltaX + state.tabSX
 
               const curr = tab * -canW + nextTabX
               const min = rangeEndTab * -canW
@@ -120,7 +120,7 @@ function Swiper({
 
               if (!isInRange(curr, min, max)) {
                 // prettier-ignore
-                overflowed =
+                state.overflowed =
                     curr + overflowThreshold < min
                       ? horizontal ? Direction.right : Direction.up
                       : curr - overflowThreshold > max
@@ -136,9 +136,7 @@ function Swiper({
 
               return {
                 ...state,
-                tabSX,
                 tabX: nextTabX,
-                overflowed,
               }
             }
             case 'custom': {
@@ -163,7 +161,7 @@ function Swiper({
                 tabX: currTabX,
               }
             }
-            case 'swipeend':
+            case 'swipeend': {
               // TODO: 支持多页滑动, 而非仅仅单页
               // prettier-ignore
               const action =
@@ -204,6 +202,7 @@ function Swiper({
                 tab: finalTab,
                 tabX: currTabX,
               }
+            }
             case 'flingmove':
               return { ...state, tabX: nextTabX, tab: nextTab }
             case 'flingend':
