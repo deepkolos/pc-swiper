@@ -59,6 +59,7 @@ function Swiper({
   this.maxOverflow = maxOverflow
   this.flingDuration = flingDuration
 
+  children = Array.isArray(children) ? children : [children]
   children.forEach((node, i) => (node.props.index = i))
 
   const { endT$, moveT$, custom$, startT$, tabOnFlingEnd$ } = useMemo(() => {
