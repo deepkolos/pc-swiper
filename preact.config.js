@@ -10,8 +10,8 @@ const module = cfg => {
   cfg.entry = './components/swiper/index.js'
 
   cfg.devtool = 'source-map'
-  cfg.mode = 'development'
-  // cfg.mode = 'production'
+  // cfg.mode = 'development'
+  cfg.mode = 'production'
 
   cfg.output = {
     path: p('./lib'),
